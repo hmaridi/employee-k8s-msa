@@ -81,7 +81,7 @@
 		</dependency>
 	</dependencies>
 	
-	<!--<build>
+	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -106,9 +106,9 @@
 				</configuration>
 			</plugin>
 		</plugins>
-	</build>-->
+	</build>
 	
-	<profiles>
+	<!--<profiles>
 		<profile>
 			<id>build-image</id>
 			<build>
@@ -135,7 +135,7 @@
 				</plugins>
 			</build>
 		</profile>
-	</profiles>
+	</profiles>-->
 	
 	<!--<build>
 		<plugins>
