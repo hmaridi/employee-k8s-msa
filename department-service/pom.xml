@@ -80,7 +80,8 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-	<build>
+	
+	<!--<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -98,14 +99,44 @@
 					</image>
 					<docker>
 						<publishRegistry>
-							<username>${env.DOCKERHUB_USER}</username>
-							<password>${env.DOCKERHUB_PWD}</password>
+							<username>${env.DOCKER_USERNAME}</username>
+							<password>${env.DOCKER_PASSWORD}</password>
 						</publishRegistry>
 					</docker>
 				</configuration>
 			</plugin>
 		</plugins>
-	</build>
+	</build>-->
+	
+	<profiles>
+		<profile>
+			<id>build-image</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.springframework.boot</groupId>
+						<artifactId>spring-boot-maven-plugin</artifactId>
+						<configuration>
+							<image>
+								<builder>
+									paketobuildpacks/builder-jammy-base:latest</builder>
+								<name>hmaridi383/${project.artifactId}:${project.version}</name>
+								<publish>true</publish>
+							</image>
+						</configuration>
+						<executions>
+							<execution>
+								<goals>
+									<goal>build-image</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+	
 	<!--<build>
 		<plugins>
 			<plugin>
