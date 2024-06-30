@@ -1,0 +1,30 @@
+#server:
+#  port: 8092
+#  forward-headers-strategy: framework
+  
+spring:
+  output:
+    ansi:
+      enabled: always  
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discovery-service:8761/eureka/
+      
+
+springdoc:
+  packagesToScan: com.msa.k8s.employee
+  cache:
+    disabled: true
+  version: '@springdoc.version@'
+  api-docs:
+    version: openapi-3-1
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+  zipkin:
+    tracing:
+      endpoint: http://zipkin:9411/api/v2/spans

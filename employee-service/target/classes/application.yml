@@ -1,0 +1,10 @@
+server:
+  port: 8092
+  forward-headers-strategy: framework
+
+spring: 
+  application:
+    name: employee-service
+  profiles:
+    active:
+    - dev   
