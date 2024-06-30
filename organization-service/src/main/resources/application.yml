@@ -1,0 +1,12 @@
+server:
+  port: 8093
+  forward-headers-strategy: framework
+    
+spring: 
+  application:
+    name: organization-service
+  profiles:
+    active:
+    - dev       
+ 
+   
