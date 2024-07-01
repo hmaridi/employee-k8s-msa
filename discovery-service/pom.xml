@@ -24,51 +24,34 @@
         </dependency>-->
     </dependencies>
 
-   <!-- <profiles>
-        <profile>
-            <id>build-image</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>com.google.cloud.tools</groupId>
-                        <artifactId>jib-maven-plugin</artifactId>
-                        <version>3.4.3</version>
-                        <configuration>
-                            <from>
-                                <image>eclipse-temurin:21-jdk</image>
-                            </from>
-                            <to>
-                                <image>piomin/${project.artifactId}:${project.version}</image>
-                            </to>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>dockerBuild</goal>
-                                </goals>
-                                <phase>package</phase>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    					<plugin>
-                    						<groupId>org.springframework.boot</groupId>
-                    						<artifactId>spring-boot-maven-plugin</artifactId>
-                    						<configuration>
-                    							<image>
-                    								<name>piomin/${project.artifactId}:${project.version}</name>
-                    							</image>
-                    						</configuration>
-                    						<executions>
-                    							<execution>
-                    								<goals>
-                    									<goal>build-image</goal>
-                    								</goals>
-                    							</execution>
-                    						</executions>
-                    					</plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>-->
+  <build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
+				<version>1.4.13</version>
+				<executions>
+					<execution>
+						<id>default</id>
+						<goals>
+							<goal>build</goal>
+							<goal>push</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<repository>hmaridi383/discovery-service</repository>
+					<tag>${project.version}</tag>
+					<useMavenSettingsForAuth>true</useMavenSettingsForAuth>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
 
 </project>
