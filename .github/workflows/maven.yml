@@ -25,8 +25,10 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
+        server-id: docker.io
+        server-username: MAVEN_USERNAME
+        server-password: MAVEN_PASSWORD 
         
-    
     - name: Building and Pushing discovery-service
       run: mvn package dockerfile:push --file discovery-service/pom.xml
       env:
