@@ -28,7 +28,9 @@ jobs:
         server-id: docker.io
         server-username: MAVEN_USERNAME
         server-password: MAVEN_PASSWORD
-      
+    - name: Build with Maven
+      run: mvn clean install
+
     - name: Building and Pushing discovery-service
       run: mvn package dockerfile:push --file discovery-service/pom.xml
       env:
