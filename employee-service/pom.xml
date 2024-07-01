@@ -92,7 +92,7 @@
 					</execution>
 				</executions>
 				<configuration>
-					<repository>hmaridi383/discovery-service</repository>
+					<repository>hmaridi383/employee-service</repository>
 					<tag>${project.version}</tag>
 					<useMavenSettingsForAuth>true</useMavenSettingsForAuth>
 				</configuration>
