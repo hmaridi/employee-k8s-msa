@@ -63,61 +63,33 @@
 		</dependency>
 	</dependencies>
 
-	<!--<build>
+	  <build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
 			<plugin>
-				<groupId>org.jacoco</groupId>
-				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.8.12</version>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
+				<version>1.4.13</version>
 				<executions>
 					<execution>
+						<id>default</id>
 						<goals>
-							<goal>prepare-agent</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>report</id>
-						<phase>test</phase>
-						<goals>
-							<goal>report</goal>
+							<goal>build</goal>
+							<goal>push</goal>
 						</goals>
 					</execution>
 				</executions>
+				<configuration>
+					<repository>hmaridi383/organization-service</repository>
+					<tag>${project.version}</tag>
+					<useMavenSettingsForAuth>true</useMavenSettingsForAuth>
+				</configuration>
 			</plugin>
+
 		</plugins>
 	</build>
-
-	<profiles>
-		<profile>
-			<id>build-image</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.springframework.boot</groupId>
-						<artifactId>spring-boot-maven-plugin</artifactId>
-						<configuration>
-							<image>
-								<builder>
-									paketobuildpacks/builder-jammy-base:latest</builder>
-								<name>
-									piomin/${project.artifactId}:${project.version}</name>
-							</image>
-						</configuration>
-						<executions>
-							<execution>
-								<goals>
-									<goal>build-image</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
--->
 </project>
