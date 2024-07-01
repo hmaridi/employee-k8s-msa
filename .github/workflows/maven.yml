@@ -25,12 +25,13 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-        cache: maven
-    - name: Build with Maven
-      run: mvn clean install
+        server-id: docker.io
+        server-username: MAVEN_USERNAME
+        server-password: MAVEN_PASSWORD
       
-    - name: Build & push Docker image  
+    - name: Building and Pushing discovery-service
+      run: mvn package dockerfile:push --file discovery-service/pom.xml
       env:
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}  
+          MAVEN_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          MAVEN_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
   
