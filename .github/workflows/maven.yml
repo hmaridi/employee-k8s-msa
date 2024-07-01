@@ -39,4 +39,28 @@ jobs:
       env:
           MAVEN_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.DOCKER_TOKEN }}
+          
+    - name: Building and Pushing department-service
+      run: mvn package dockerfile:push --file department-service/pom.xml
+      env:
+          MAVEN_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          MAVEN_PASSWORD: ${{ secrets.DOCKER_TOKEN }}    
+
+    - name: Building and Pushing employee-service
+      run: mvn package dockerfile:push --file employee-service/pom.xml
+      env:
+          MAVEN_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          MAVEN_PASSWORD: ${{ secrets.DOCKER_TOKEN }}  
+
+    - name: Building and Pushing gateway-service
+      run: mvn package dockerfile:push --file gateway-service/pom.xml
+      env:
+          MAVEN_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          MAVEN_PASSWORD: ${{ secrets.DOCKER_TOKEN }}  
+          
+    - name: Building and Pushing organization-service
+      run: mvn package dockerfile:push --file organization-service/pom.xml
+      env:
+          MAVEN_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          MAVEN_PASSWORD: ${{ secrets.DOCKER_TOKEN }}       
   
