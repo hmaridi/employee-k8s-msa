@@ -1,0 +1,8 @@
+com\msa\k8s\organization\client\DepartmentClient.class
+com\msa\k8s\organization\client\EmployeeClient.class
+com\msa\k8s\organization\model\Employee.class
+com\msa\k8s\organization\controller\OrganizationController.class
+com\msa\k8s\organization\OrganizationApplication.class
+com\msa\k8s\organization\model\Department.class
+com\msa\k8s\organization\repository\OrganizationRepository.class
+com\msa\k8s\organization\model\Organization.class

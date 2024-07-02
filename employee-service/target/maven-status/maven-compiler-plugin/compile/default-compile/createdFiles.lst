@@ -1,0 +1,4 @@
+com\msa\k8s\employee\controller\EmployeeController.class
+com\msa\k8s\employee\model\Employee.class
+com\msa\k8s\employee\repository\EmployeeRepository.class
+com\msa\k8s\employee\EmployeeApplication.class
