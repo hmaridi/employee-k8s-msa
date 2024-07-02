@@ -8,7 +8,7 @@
 		<version>1.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>gateway-service</artifactId>
-	<version>1.1</version>
+	<version>1.2</version>
 
 	<properties>
 		<sonar.moduleKey>${project.artifactId}</sonar.moduleKey>
@@ -27,10 +27,6 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
-		<!--<dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-config</artifactId>
-        </dependency>-->
 		<dependency>
 			<groupId>io.micrometer</groupId>
 			<artifactId>micrometer-tracing-bridge-otel</artifactId>
@@ -42,11 +38,6 @@
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-starter-webflux-api</artifactId>
-			<version>2.5.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springdoc</groupId>
-			<artifactId>springdoc-openapi-starter-webflux-ui</artifactId>
 			<version>2.5.0</version>
 		</dependency>
 	</dependencies>

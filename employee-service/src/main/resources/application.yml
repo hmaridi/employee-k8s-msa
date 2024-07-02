@@ -7,4 +7,4 @@ spring:
     name: employee-service
   profiles:
     active:
-    - dev   
+    - prod   

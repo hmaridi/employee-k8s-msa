@@ -7,7 +7,7 @@
     <version>1.1-SNAPSHOT</version>
     </parent>
     <artifactId>discovery-service</artifactId>
-    <version>1.1</version>
+    <version>1.2</version>
     
     <properties>
         <sonar.moduleKey>${project.artifactId}</sonar.moduleKey>
@@ -18,57 +18,34 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
-        <!--<dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-config</artifactId>
-        </dependency>-->
     </dependencies>
+          <build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
 
-   <!-- <profiles>
-        <profile>
-            <id>build-image</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>com.google.cloud.tools</groupId>
-                        <artifactId>jib-maven-plugin</artifactId>
-                        <version>3.4.3</version>
-                        <configuration>
-                            <from>
-                                <image>eclipse-temurin:21-jdk</image>
-                            </from>
-                            <to>
-                                <image>piomin/${project.artifactId}:${project.version}</image>
-                            </to>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>dockerBuild</goal>
-                                </goals>
-                                <phase>package</phase>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    					<plugin>
-                    						<groupId>org.springframework.boot</groupId>
-                    						<artifactId>spring-boot-maven-plugin</artifactId>
-                    						<configuration>
-                    							<image>
-                    								<name>piomin/${project.artifactId}:${project.version}</name>
-                    							</image>
-                    						</configuration>
-                    						<executions>
-                    							<execution>
-                    								<goals>
-                    									<goal>build-image</goal>
-                    								</goals>
-                    							</execution>
-                    						</executions>
-                    					</plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>-->
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
+				<version>1.4.13</version>
+				<executions>
+					<execution>
+						<id>default</id>
+						<goals>
+							<goal>build</goal>
+							<goal>push</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<repository>hmaridi383/discovery-service</repository>
+					<tag>${project.version}</tag>
+					<useMavenSettingsForAuth>true</useMavenSettingsForAuth>
+				</configuration>
+			</plugin>
 
+		</plugins>
+	</build>
 </project>

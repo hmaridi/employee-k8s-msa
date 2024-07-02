@@ -1,0 +1,6 @@
+com\msa\k8s\department\repository\DepartmentRepository.class
+com\msa\k8s\department\DepartmentApplication.class
+com\msa\k8s\department\client\EmployeeClient.class
+com\msa\k8s\department\model\Department.class
+com\msa\k8s\department\model\Employee.class
+com\msa\k8s\department\controller\DepartmentController.class

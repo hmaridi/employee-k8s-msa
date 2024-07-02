@@ -7,6 +7,6 @@ spring:
     name: organization-service
   profiles:
     active:
-    - dev       
+    - prod       
  
    
