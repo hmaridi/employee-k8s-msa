@@ -7,7 +7,7 @@ spring:
     name: department-service
   profiles:
     active:
-    - dev   
+    - prod   
   
 
 #spring:
